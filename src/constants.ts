@@ -8,7 +8,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'ปอเปี๊ยะผักกรอบๆ เสิร์ฟพร้อมน้ำจิ้มบ๊วยรสหวานอมเปรี้ยว',
     price: 120,
     category: 'อาหารทานเล่น',
-    image: `${import.meta.env.BASE_URL}images/fried-spring-rolls.jpg`,
+    image: 'https://images.unsplash.com/photo-1606525437679-037aca74a3e9?q=80&w=1170&auto=format&fit=crop&w800&q=80',
     icon: '🥗'
   },
   {
@@ -17,7 +17,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'ต้มยำกุ้งแม่น้ำรสชาติจัดจ้าน หอมกลิ่นสมุนไพรไทย ข่า ตะไคร้ ใบมะกรูด',
     price: 250,
     category: 'อาหารจานหลัก',
-    image: `${import.meta.env.BASE_URL}images/tom-yum-shrimp.jpg`,
+    image: 'https://images.unsplash.com/photo-1761037994516-502ed10932b0?q=80&w=687&auto=format&fit=crop&w800&q=80',
     icon: '🍜'
   },
   {
@@ -26,7 +26,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'เส้นจันท์เหนียวนุ่ม ผัดกับซอสมะขามสูตรพิเศษ เสิร์ฟพร้อมกุ้งสดตัวโต',
     price: 180,
     category: 'อาหารจานหลัก',
-    image: `${import.meta.env.BASE_URL}images/rice-noodles.jpg`,
+    image: 'https://images.unsplash.com/photo-1637806930600-37fa8892069d?q=80&w=685&auto=format&fit=crop&w800&q=80',
     icon: '🍜'
   },
   {
@@ -35,7 +35,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'แกงเขียวหวานรสชาติเข้มข้นถึงเครื่องแกง ใส่เนื้อไก่นุ่มๆ และมะเขือเปราะ',
     price: 220,
     category: 'อาหารจานหลัก',
-    image: `${import.meta.env.BASE_URL}images/thai-green-curry.jpg`,
+    image: 'https://images.unsplash.com/photo-1707056924965-2c687206af67?q=80&w=1173&auto=format&fit=crop&800&q=80',
     icon: '🍜'
   },
   {
@@ -44,7 +44,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'ข้าวเหนียวมูนกะทิหอมมัน เสิร์ฟพร้อมมะม่วงน้ำดอกไม้สุกหวานฉ่ำ',
     price: 150,
     category: 'ของหวาน',
-    image: `${import.meta.env.BASE_URL}images/mango-sticky-rice.jpg`,
+    image: 'https://images.unsplash.com/photo-1705234384751-84081009588e?q=80&w=737&auto=format&fit=crop&w800&q=80',
     icon: '🍰'
   },
   {
@@ -53,7 +53,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'ชาไทยสีส้มเข้มข้น หอมกลิ่นชาแท้ๆ ผสมนมข้นหวานรสชาติกลมกล่อม',
     price: 85,
     category: 'เครื่องดื่ม',
-    image: `${import.meta.env.BASE_URL}images/thai-iced-tea.jpg`,
+    image: 'https://images.unsplash.com/photo-1644204010193-a35de7b0d702?q=80&w=735&auto=format&fit=crop&w800&q=80',
     icon: '🧋'
   },
   {
@@ -62,7 +62,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'ส้มตำมะละกอรสชาติเปรี้ยวหวาน เผ็ดกำลังดี โรยด้วยถั่วลิสงคั่วหอมๆ',
     price: 120,
     category: 'อาหารทานเล่น',
-    image: `${import.meta.env.BASE_URL}images/papaya-salad.jpg`,
+    image: 'https://images.unsplash.com/photo-1648421331147-9fcfab29536e?q=80&w=1170&auto=format&fit=crop&w800&q=80',
     icon: '🥗'
   },
   {
@@ -71,7 +71,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'เค้กเนื้อนุ่มละมุน สอดไส้ครีมมะพร้าวอ่อนและเนื้อมะพร้าวแท้ๆ',
     price: 135,
     category: 'ของหวาน',
-    image: `${import.meta.env.BASE_URL}images/coconut-cake.jpg`,
+    image: 'https://images.unsplash.com/photo-1716579895359-e9ac8ce97461?q=80&w=1049&auto=format&fit=crop&w800&q=80',
     icon: '🍰'
   }
 ];
