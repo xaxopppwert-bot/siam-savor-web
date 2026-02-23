@@ -7,7 +7,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'ปอเปี๊ยะผักกรอบๆ เสิร์ฟพร้อมน้ำจิ้มบ๊วยรสหวานอมเปรี้ยว',
     price: 120,
     category: 'อาหารทานเล่น',
-    image: '/images/fried-spring-rolls.jpg',
+    image: `${import.meta.env.BASE_URL}images/fried-spring-rolls.jpg`,
     icon: '🥗'
   },
   {
@@ -16,7 +16,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'ต้มยำกุ้งแม่น้ำรสชาติจัดจ้าน หอมกลิ่นสมุนไพรไทย ข่า ตะไคร้ ใบมะกรูด',
     price: 250,
     category: 'อาหารจานหลัก',
-    image: '/images/tom-yum-shrimp.jpg',
+    image: `${import.meta.env.BASE_URL}images/tom-yum-shrimp.jpg`,
     icon: '🍜'
   },
   {
@@ -25,7 +25,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'เส้นจันท์เหนียวนุ่ม ผัดกับซอสมะขามสูตรพิเศษ เสิร์ฟพร้อมกุ้งสดตัวโต',
     price: 180,
     category: 'อาหารจานหลัก',
-    image: '/images/rice-noodles.jpg',
+    image: `${import.meta.env.BASE_URL}images/rice-noodles.jpg`,
     icon: '🍜'
   },
   {
@@ -34,7 +34,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'แกงเขียวหวานรสชาติเข้มข้นถึงเครื่องแกง ใส่เนื้อไก่นุ่มๆ และมะเขือเปราะ',
     price: 220,
     category: 'อาหารจานหลัก',
-    image: '/images/thai-green-curry.jpg',
+    image: `${import.meta.env.BASE_URL}images/thai-green-curry.jpg`,
     icon: '🍜'
   },
   {
@@ -43,7 +43,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'ข้าวเหนียวมูนกะทิหอมมัน เสิร์ฟพร้อมมะม่วงน้ำดอกไม้สุกหวานฉ่ำ',
     price: 150,
     category: 'ของหวาน',
-    image: '/images/mango-sticky-rice.jpg',
+    image: `${import.meta.env.BASE_URL}images/mango-sticky-rice.jpg`,
     icon: '🍰'
   },
   {
@@ -52,7 +52,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'ชาไทยสีส้มเข้มข้น หอมกลิ่นชาแท้ๆ ผสมนมข้นหวานรสชาติกลมกล่อม',
     price: 85,
     category: 'เครื่องดื่ม',
-    image: '/images/thai-iced-tea.jpg',
+    image: `${import.meta.env.BASE_URL}images/thai-iced-tea.jpg`,
     icon: '🧋'
   },
   {
@@ -61,7 +61,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'ส้มตำมะละกอรสชาติเปรี้ยวหวาน เผ็ดกำลังดี โรยด้วยถั่วลิสงคั่วหอมๆ',
     price: 120,
     category: 'อาหารทานเล่น',
-    image: '/images/papaya-salad.jpg',
+    image: `${import.meta.env.BASE_URL}images/papaya-salad.jpg`,
     icon: '🥗'
   },
   {
@@ -70,7 +70,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'เค้กเนื้อนุ่มละมุน สอดไส้ครีมมะพร้าวอ่อนและเนื้อมะพร้าวแท้ๆ',
     price: 135,
     category: 'ของหวาน',
-    image: '/images/coconut-cake.jpg',
+    image: `${import.meta.env.BASE_URL}images/coconut-cake.jpg`,
     icon: '🍰'
   }
 ];
