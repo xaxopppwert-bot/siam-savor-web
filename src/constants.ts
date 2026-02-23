@@ -16,7 +16,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'ต้มยำกุ้งแม่น้ำรสชาติจัดจ้าน หอมกลิ่นสมุนไพรไทย ข่า ตะไคร้ ใบมะกรูด',
     price: 250,
     category: 'อาหารจานหลัก',
-    image: `${import.meta.env.BASE_URL}images/tom-yum-shrimp.jpg`,
+    image: 'https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?auto=format&fit=crop&w=800&q=80',
     icon: '🍜'
   },
   {
