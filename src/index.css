@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Itim", cursive;
+  
+  --color-brand-cream: #FDFBF7;
+  --color-brand-beige: #F5E6D3;
+  --color-brand-brown: #8D6E63;
+  --color-brand-green: #A5D6A7;
+  --color-brand-green-dark: #81C784;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-cream text-brand-brown font-sans;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg;
+}
+
+.nav-link {
+  @apply px-4 py-2 rounded-full transition-all duration-300 hover:bg-brand-beige;
+}
+
+.nav-link.active {
+  @apply bg-brand-green text-white shadow-md;
+}
