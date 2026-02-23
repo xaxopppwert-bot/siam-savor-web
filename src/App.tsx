@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Utensils, Phone, Home as HomeIcon, Instagram, MapPin, Clock, Menu as MenuIcon, X, ShoppingBag, User as UserIcon, LogOut, Plus, Minus, Trash2, CreditCard, CheckCircle, ArrowLeft } from 'lucide-react';
 import { MENU_ITEMS } from './constants';
-import { Category, MenuItem, CartItem, User } from './types';
+import { Category, MenuItem, CartItem, User, UserRole } from './types';
 
 // --- Components ---
 
@@ -136,6 +136,159 @@ const SuccessSection = ({ onHome }: { onHome: () => void }) => (
   </section>
 );
 
+const RoleSelector = ({ currentRole, onRoleChange }: { currentRole: UserRole | undefined, onRoleChange: (role: UserRole) => void }) => {
+  const roles = [
+    { id: UserRole.ADMIN, label: 'ผู้ดูแลระบบ', icon: '🛡️' },
+    { id: UserRole.MANAGER, label: 'ผู้ดูแลร้านอาหาร', icon: '🏪' },
+    { id: UserRole.CUSTOMER, label: 'สมาชิกหรือลูกค้า', icon: '👤' },
+    { id: UserRole.DELIVERY, label: 'ผู้ส่งอาหาร', icon: '🛵' },
+  ];
+
+  return (
+    <div className="fixed bottom-6 left-6 z-[60] flex flex-col gap-2">
+      <div className="bg-white/90 backdrop-blur-sm p-4 rounded-3xl shadow-2xl border border-brand-beige">
+        <p className="text-xs font-bold text-brand-brown/40 uppercase tracking-wider mb-3 ml-1">สลับบทบาท (Demo)</p>
+        <div className="flex flex-col gap-1">
+          {roles.map((role) => (
+            <button
+              key={role.id}
+              onClick={() => onRoleChange(role.id)}
+              className={`flex items-center gap-3 px-4 py-2 rounded-2xl transition-all text-sm font-medium ${
+                currentRole === role.id 
+                ? 'bg-brand-green text-white shadow-md' 
+                : 'hover:bg-brand-beige text-brand-brown/70'
+              }`}
+            >
+              <span>{role.icon}</span>
+              {role.label}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const DashboardSection = ({ role }: { role: UserRole }) => {
+  const getDashboardContent = () => {
+    switch (role) {
+      case UserRole.ADMIN:
+        return (
+          <div className="space-y-8">
+            <h2 className="text-4xl">แผงควบคุมผู้ดูแลระบบ 🛡️</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white p-6 rounded-3xl border border-brand-beige shadow-sm">
+                <h3 className="text-lg font-bold mb-2">ผู้ใช้งานทั้งหมด</h3>
+                <p className="text-3xl text-brand-green">1,240</p>
+              </div>
+              <div className="bg-white p-6 rounded-3xl border border-brand-beige shadow-sm">
+                <h3 className="text-lg font-bold mb-2">รายได้รวมเดือนนี้</h3>
+                <p className="text-3xl text-brand-green">฿450,000</p>
+              </div>
+              <div className="bg-white p-6 rounded-3xl border border-brand-beige shadow-sm">
+                <h3 className="text-lg font-bold mb-2">คำสั่งซื้อวันนี้</h3>
+                <p className="text-3xl text-brand-green">85</p>
+              </div>
+            </div>
+            <div className="bg-white p-8 rounded-[2.5rem] border border-brand-beige shadow-xl">
+              <h3 className="text-xl mb-6">รายการกิจกรรมล่าสุด</h3>
+              <div className="space-y-4">
+                {[1, 2, 3].map(i => (
+                  <div key={i} className="flex items-center justify-between py-3 border-b border-brand-beige last:border-0">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-brand-beige rounded-full flex items-center justify-center">👤</div>
+                      <div>
+                        <p className="font-medium">ผู้ใช้ใหม่สมัครสมาชิก</p>
+                        <p className="text-xs text-brand-brown/50">2 นาทีที่แล้ว</p>
+                      </div>
+                    </div>
+                    <span className="text-xs bg-brand-green/10 text-brand-green px-3 py-1 rounded-full">สำเร็จ</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      case UserRole.MANAGER:
+        return (
+          <div className="space-y-8">
+            <h2 className="text-4xl">จัดการร้านอาหาร 🏪</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white p-8 rounded-[2.5rem] border border-brand-beige shadow-xl">
+                <h3 className="text-xl mb-6">ออเดอร์ที่กำลังรอ</h3>
+                <div className="space-y-4">
+                  {[1, 2].map(i => (
+                    <div key={i} className="p-4 bg-brand-cream rounded-2xl border border-brand-beige flex justify-between items-center">
+                      <div>
+                        <p className="font-bold">โต๊ะ {i + 4} - ต้มยำกุ้ง, ผัดไทย</p>
+                        <p className="text-sm text-brand-brown/60">สั่งเมื่อ 10 นาทีที่แล้ว</p>
+                      </div>
+                      <button className="bg-brand-green text-white px-4 py-2 rounded-xl text-sm">รับออเดอร์</button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-white p-8 rounded-[2.5rem] border border-brand-beige shadow-xl">
+                <h3 className="text-xl mb-6">สถานะพนักงาน</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span>เชฟสมชาย</span>
+                    <span className="text-brand-green">● กำลังทำอาหาร</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span>พนักงานเสิร์ฟวิภา</span>
+                    <span className="text-brand-green">● พร้อมให้บริการ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      case UserRole.DELIVERY:
+        return (
+          <div className="space-y-8">
+            <h2 className="text-4xl">รายการส่งอาหาร 🛵</h2>
+            <div className="bg-white p-8 rounded-[2.5rem] border border-brand-beige shadow-xl">
+              <h3 className="text-xl mb-6">ออเดอร์ที่พร้อมส่ง</h3>
+              <div className="space-y-6">
+                <div className="p-6 bg-brand-green/5 rounded-3xl border-2 border-brand-green/20">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <p className="text-xs font-bold text-brand-green uppercase tracking-wider">ออเดอร์ #8824</p>
+                      <p className="text-xl font-bold">คุณสมชาย (ระยะทาง 2.5 กม.)</p>
+                    </div>
+                    <span className="bg-brand-green text-white px-4 py-1 rounded-full text-sm">฿45.00</span>
+                  </div>
+                  <p className="text-brand-brown/70 mb-6 flex items-center gap-2">
+                    <MapPin size={16} /> 123/45 ซอยสุขุมวิท 21, กรุงเทพฯ
+                  </p>
+                  <button className="w-full bg-brand-green text-white py-4 rounded-2xl font-bold shadow-lg shadow-brand-green/20">
+                    รับงานส่งอาหารนี้
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return (
+          <div className="text-center py-20">
+            <h2 className="text-3xl mb-4">ยินดีต้อนรับคุณลูกค้า! 👤</h2>
+            <p className="text-brand-brown/60">คุณสามารถดูประวัติการสั่งซื้อและคะแนนสะสมได้ที่นี่</p>
+          </div>
+        );
+    }
+  };
+
+  return (
+    <section className="py-20 px-4 min-h-[80vh] bg-brand-cream">
+      <div className="max-w-6xl mx-auto">
+        {getDashboardContent()}
+      </div>
+    </section>
+  );
+};
+
 const Navbar = ({ 
   activeTab, 
   setActiveTab, 
@@ -159,6 +312,7 @@ const Navbar = ({
     { id: 'home', label: 'หน้าแรก', icon: <HomeIcon size={18} /> },
     { id: 'menu', label: 'เมนู', icon: <Utensils size={18} /> },
     { id: 'contact', label: 'ติดต่อเรา', icon: <Phone size={18} /> },
+    ...(user ? [{ id: 'dashboard', label: 'แดชบอร์ด', icon: <CheckCircle size={18} /> }] : []),
   ];
 
   return (
@@ -385,7 +539,8 @@ const AuthModal = ({
     // Simulate auth
     onLogin({ 
       name: formData.name || 'คุณลูกค้า', 
-      email: formData.email 
+      email: formData.email,
+      role: UserRole.CUSTOMER
     });
     onClose();
   };
@@ -826,7 +981,22 @@ export default function App() {
         onOpenCart={() => setIsCartOpen(true)}
         user={user}
         onOpenAuth={() => setIsAuthOpen(true)}
-        onLogout={() => setUser(null)}
+        onLogout={() => {
+          setUser(null);
+          setActiveTab('home');
+        }}
+      />
+
+      <RoleSelector 
+        currentRole={user?.role} 
+        onRoleChange={(role) => {
+          if (!user) {
+            setUser({ name: 'Demo User', email: 'demo@example.com', role });
+          } else {
+            setUser({ ...user, role });
+          }
+          setActiveTab('dashboard');
+        }} 
       />
       
       <main>
@@ -848,6 +1018,17 @@ export default function App() {
               </div>
               <MenuSection onAddToCart={addToCart} />
               <ContactSection />
+            </motion.div>
+          )}
+
+          {activeTab === 'dashboard' && user && (
+            <motion.div
+              key="dashboard"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+            >
+              <DashboardSection role={user.role} />
             </motion.div>
           )}
 

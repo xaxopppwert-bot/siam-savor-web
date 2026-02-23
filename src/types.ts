@@ -14,7 +14,15 @@ export interface CartItem extends MenuItem {
   quantity: number;
 }
 
+export enum UserRole {
+  ADMIN = 'ADMIN',
+  MANAGER = 'MANAGER',
+  CUSTOMER = 'CUSTOMER',
+  DELIVERY = 'DELIVERY'
+}
+
 export interface User {
   name: string;
   email: string;
+  role: UserRole;
 }
