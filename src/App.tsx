@@ -628,92 +628,133 @@ const MenuSection = ({ onAddToCart }: { onAddToCart: (item: MenuItem) => void })
   );
 };
 
-const ContactSection = () => (
-  <section className="py-20 px-4">
-    <div className="max-w-6xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl mb-6">แวะมาหาเรา</h2>
-          <p className="text-brand-brown/70 mb-8">
-            เรายินดีต้อนรับคุณเสมอ! มาสัมผัสประสบการณ์อาหารไทยที่ดีที่สุดในย่านนี้
-          </p>
-          
-          <div className="space-y-6">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0">
-                <MapPin size={24} />
+const ContactSection = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+  };
+
+  return (
+    <section className="py-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl mb-6">แวะมาหาเรา</h2>
+            <p className="text-brand-brown/70 mb-8">
+              เรายินดีต้อนรับคุณเสมอ! มาสัมผัสประสบการณ์อาหารไทยที่ดีที่สุดในย่านนี้
+            </p>
+            
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0">
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">ที่ตั้ง</h4>
+                  <p className="text-brand-brown/60">123 ถนนสุขุมวิท, กรุงเทพมหานคร, ประเทศไทย</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-semibold text-lg">ที่ตั้ง</h4>
-                <p className="text-brand-brown/60">123 ถนนสุขุมวิท, กรุงเทพมหานคร, ประเทศไทย</p>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0">
+                  <Clock size={24} />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">เวลาทำการ</h4>
+                  <p className="text-brand-brown/60">จันทร์ - อาทิตย์: 11:00 น. - 22:00 น.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0">
+                  <Phone size={24} />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">ติดต่อ</h4>
+                  <p className="text-brand-brown/60">02-123-4567</p>
+                  <p className="text-brand-brown/60">hello@siamsavor.com</p>
+                </div>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0">
-                <Clock size={24} />
-              </div>
-              <div>
-                <h4 className="font-semibold text-lg">เวลาทำการ</h4>
-                <p className="text-brand-brown/60">จันทร์ - อาทิตย์: 11:00 น. - 22:00 น.</p>
-              </div>
+            <div className="mt-8 flex gap-4">
+              <button className="w-10 h-10 rounded-full bg-brand-brown text-white flex items-center justify-center hover:scale-110 transition-transform">
+                <Instagram size={20} />
+              </button>
+              <button className="w-10 h-10 rounded-full bg-brand-brown text-white flex items-center justify-center hover:scale-110 transition-transform">
+                <span className="font-bold text-xs">FB</span>
+              </button>
             </div>
+          </motion.div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0">
-                <Phone size={24} />
-              </div>
-              <div>
-                <h4 className="font-semibold text-lg">ติดต่อ</h4>
-                <p className="text-brand-brown/60">02-123-4567</p>
-                <p className="text-brand-brown/60">hello@siamsavor.com</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 flex gap-4">
-            <button className="w-10 h-10 rounded-full bg-brand-brown text-white flex items-center justify-center hover:scale-110 transition-transform">
-              <Instagram size={20} />
-            </button>
-            <button className="w-10 h-10 rounded-full bg-brand-brown text-white flex items-center justify-center hover:scale-110 transition-transform">
-              <span className="font-bold text-xs">FB</span>
-            </button>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-white p-8 rounded-[2rem] shadow-xl border border-brand-beige"
-        >
-          <h3 className="text-2xl mb-6">ส่งข้อความหาเรา</h3>
-          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <div>
-              <label className="block text-sm font-medium mb-1">ชื่อของคุณ</label>
-              <input type="text" className="w-full px-4 py-3 rounded-2xl bg-brand-cream border border-brand-beige focus:outline-none focus:ring-2 focus:ring-brand-green/50 transition-all" placeholder="ระบุชื่อของคุณ" />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">อีเมล</label>
-              <input type="email" className="w-full px-4 py-3 rounded-2xl bg-brand-cream border border-brand-beige focus:outline-none focus:ring-2 focus:ring-brand-green/50 transition-all" placeholder="your@email.com" />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">ข้อความ</label>
-              <textarea rows={4} className="w-full px-4 py-3 rounded-2xl bg-brand-cream border border-brand-beige focus:outline-none focus:ring-2 focus:ring-brand-green/50 transition-all" placeholder="เราสามารถช่วยอะไรคุณได้บ้าง?"></textarea>
-            </div>
-            <button className="w-full rounded-full bg-brand-green text-white py-4 font-semibold shadow-lg hover:bg-brand-green-dark transition-all">
-              ส่งข้อความ ✨
-            </button>
-          </form>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white p-8 rounded-[2rem] shadow-xl border border-brand-beige min-h-[400px] flex flex-col justify-center"
+          >
+            <AnimatePresence mode="wait">
+              {!isSubmitted ? (
+                <motion.div
+                  key="form"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                >
+                  <h3 className="text-2xl mb-6">ส่งข้อความหาเรา</h3>
+                  <form className="space-y-4" onSubmit={handleSubmit}>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">ชื่อของคุณ</label>
+                      <input required type="text" className="w-full px-4 py-3 rounded-2xl bg-brand-cream border border-brand-beige focus:outline-none focus:ring-2 focus:ring-brand-green/50 transition-all" placeholder="ระบุชื่อของคุณ" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">อีเมล</label>
+                      <input required type="email" className="w-full px-4 py-3 rounded-2xl bg-brand-cream border border-brand-beige focus:outline-none focus:ring-2 focus:ring-brand-green/50 transition-all" placeholder="your@email.com" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">ข้อความ</label>
+                      <textarea required rows={4} className="w-full px-4 py-3 rounded-2xl bg-brand-cream border border-brand-beige focus:outline-none focus:ring-2 focus:ring-brand-green/50 transition-all" placeholder="เราสามารถช่วยอะไรคุณได้บ้าง?"></textarea>
+                    </div>
+                    <button className="w-full rounded-full bg-brand-green text-white py-4 font-semibold shadow-lg hover:bg-brand-green-dark transition-all">
+                      ส่งข้อความ ✨
+                    </button>
+                  </form>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-8"
+                >
+                  <div className="w-20 h-20 bg-brand-green/10 text-brand-green rounded-full flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle size={40} />
+                  </div>
+                  <h3 className="text-2xl mb-2">ส่งข้อความสำเร็จ!</h3>
+                  <p className="text-brand-brown/60 mb-8">
+                    ขอบคุณที่ติดต่อเรา เราจะรีบตอบกลับคุณโดยเร็วที่สุด
+                  </p>
+                  <button 
+                    onClick={() => setIsSubmitted(false)}
+                    className="text-brand-green font-semibold hover:underline"
+                  >
+                    ส่งข้อความอื่นเพิ่มเติม
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Footer = () => (
   <footer className="bg-brand-brown text-brand-cream py-12 px-4">
